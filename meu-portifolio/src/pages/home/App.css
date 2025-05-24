@@ -1,0 +1,49 @@
+ @import "tailwindcss";
+html, body, #root {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ position: relative;
+ padding-top: env(safe-area-inset-top);
+ padding-bottom: env(safe-area-inset-bottom);
+ padding-left: env(safe-area-inset-left);
+ padding-right: env(safe-area-inset-right);
+}
+
+p {
+    
+    color: rgba(43, 51, 59, 0.836);
+}
+
+footer p{
+    color: white;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+h2 {
+    font-size: 2em ;
+    border-bottom: 2px solid rgb(165, 84, 241);
+    padding-bottom: 5px;
+    margin-bottom: 1em;
+    
+}
+.seção-conhecer span{
+    @apply font-bold
+}
+.tec{
+    @apply flex flex-row flex-wrap gap-[1em]
+}
+.card {
+   @apply flex flex-col justify-center items-center gap-2
+
+}
+.card h4 {
+    @apply m-0 
+}
+
+.card img {
+  @apply w-[50%]
+}

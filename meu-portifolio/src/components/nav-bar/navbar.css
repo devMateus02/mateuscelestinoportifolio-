@@ -1,0 +1,35 @@
+@import 'tailwindcss';
+
+.nav-link {
+  @apply p-5 text-black text-[1em] font-semibold transition duration-[.2s] ease-in-out hover:text-[rgb(165,84,241)];
+}
+
+.nav-link:hover{
+    color:rgb(165, 84, 241);
+}
+
+.logo {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: color .2s ease-in-out;
+   
+}
+
+.logo p:hover{
+  color:rgb(165, 84, 241);
+}
+
+.logo img{
+    width: 60px;
+}
+
+.logo p{
+    font-size: 1em;
+    font-weight: 600;
+     transition: color .2s ease-in-out;
+
+}
+

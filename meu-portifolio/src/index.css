@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+ background-color: rgb(250, 227, 204);
+  min-height: 100dvh;
+font-family:"poppins" , sans-serif;
+text-align: center;
+box-sizing: border-box;
+
+}
+
+
+
+
+
+
