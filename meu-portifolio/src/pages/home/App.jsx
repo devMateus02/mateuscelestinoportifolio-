@@ -32,7 +32,7 @@ function App() {
 
            <div className='social absolute left-0 bg-transparent hidden  md:flex :'>
             <ul className='pl-[.5em] bg-transparent'>
-                <li><a className='link-social' target='_blank' href="www.linkedin.com/in/mateus-celestino-a3b535367"><img src="linkedin.png" alt="" /></a></li>
+                <li><a className='link-social' target='_blank' href="https://www.linkedin.com/in/mateus-celestino-a3b535367/"><img src="linkedin.png" alt="" /></a></li>
                 <li><a className='link-social' target='_blank' href="https://github.com/devMateus02"><img src="github.png" alt="link para o github"/></a></li>
             </ul>
            </div>
@@ -89,7 +89,7 @@ function App() {
           <div className='social  bg-transparent flex flex-col gap-4 '>
                <h3 className='text-[1.5em] text-white font-semibold'>Social</h3>
             <ul className='pl-[.5em] gap-[1em] bg-transparent flex flex-row'>
-               <li><a className='link-social ' target='_blank' href="www.linkedin.com/in/mateus-celestino-a3b535367"><img className='w-[30px] bg-amber-50 rounded-2xl' src="linkedin-60.png" alt="" /></a></li>
+               <li><a className='link-social ' target='_blank' href="https://www.linkedin.com/in/mateus-celestino-a3b535367/"><img className='w-[30px] bg-amber-50 rounded-2xl' src="linkedin-60.png" alt="" /></a></li>
                 <li><a className='link-social' target='_blank' href="https://github.com/devMateus02"><img  className='w-[30px] bg-amber-50 rounded-2xl' src="github-96.png" alt="link para o github"/></a></li>
             </ul>
            </div>

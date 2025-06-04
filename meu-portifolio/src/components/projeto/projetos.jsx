@@ -40,7 +40,7 @@ function Projetos() {
   };
 
   return (
-    <section className='flex flex-col justify-center items-center px-4'>
+    <section className='flex flex-col justify-center items-center px-4' id='portifolio'>
       <h2>Portfólio</h2>
 
       <div className='w-full max-w-7xl'>
