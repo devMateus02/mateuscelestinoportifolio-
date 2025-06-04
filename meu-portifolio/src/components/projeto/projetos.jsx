@@ -6,15 +6,26 @@ function Projetos() {
   const [pagina, setPagina] = useState(1);
   const [totalPaginas, setTotalPaginas] = useState(1);
   const [projetoSelecionado, setProjetoSelecionado] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    setLoading(true);
+    setError(null);
+
     axios
       .get(`https://mateuscelestinoportifolio.onrender.com/projetos?page=${pagina}&limit=3`)
       .then(res => {
-        setProjetos(res.data.projetos);
-        setTotalPaginas(res.data.pagination.totalPages);
+        setProjetos(res.data.projetos || []);
+        setTotalPaginas(res.data.pagination?.totalPages || 1);
       })
-      .catch(err => console.error(err));
+      .catch(err => {
+        console.error(err);
+        setError('Erro ao carregar projetos.');
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [pagina]);
 
   const abrirModal = (proj) => setProjetoSelecionado(proj);
@@ -30,11 +41,21 @@ function Projetos() {
 
   return (
     <section className='flex flex-col justify-center items-center px-4'>
-      <h2>Portifólio</h2>
+      <h2>Portfólio</h2>
 
       <div className='w-full max-w-7xl'>
-        {projetos.map((proj, i) => (
-          <div key={i} className="flex flex-col md:flex-row mt-4 mb-[6em] justify-around items-center flex-wrap gap-6">
+        {loading && <p>Carregando projetos...</p>}
+        {error && <p className="text-red-600">{error}</p>}
+
+        {!loading && !error && projetos.length === 0 && (
+          <p>Nenhum projeto encontrado.</p>
+        )}
+
+        {!loading && !error && projetos.length > 0 && projetos.map(proj => (
+          <div
+            key={proj.id}
+            className="flex flex-col md:flex-row mt-4 mb-[6em] justify-around items-center flex-wrap gap-6"
+          >
             <img src={proj.src} alt={proj.alt} className="w-full md:w-[50%] h-auto object-contain" />
             <div className="flex flex-col items-start w-full md:w-[30%] gap-4">
               <h3 className='text-[1.4em]'>{proj.nome}</h3>
@@ -70,7 +91,7 @@ function Projetos() {
         </button>
       </div>
 
-      {/* Modal do projeto (mesmo código que você já tem) */}
+      {/* Modal do projeto */}
       {projetoSelecionado && (
         <div
           className="fixed top-10 left-0 w-full h-full bg-[rgba(0,0,0,0.6)] flex items-center justify-center z-[999] p-4 overflow-auto"

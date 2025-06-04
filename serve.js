@@ -10,12 +10,37 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/projetos', (req, res) => {
-  db.query('SELECT * FROM projetos', (err, results) => {
-    if (err) {
-      console.error('Erro na consulta:', err);
-      return res.status(500).json({ error: 'Erro ao buscar projetos' });
+  const page = parseInt(req.query.page) || 1;      // Página atual, padrão 1
+  const limit = parseInt(req.query.limit) || 5;    // Itens por página, padrão 5
+  const offset = (page - 1) * limit;               // Cálculo do offset
+
+  // Primeiro busca a contagem total de projetos
+  db.query('SELECT COUNT(*) AS total FROM projetos', (countErr, countResult) => {
+    if (countErr) {
+      console.error('Erro ao contar projetos:', countErr);
+      return res.status(500).json({ error: 'Erro ao contar projetos' });
     }
-    res.json(results);
+
+    const total = countResult[0].total;
+    const totalPages = Math.ceil(total / limit);
+
+    // Depois busca os projetos paginados
+    db.query('SELECT * FROM projetos LIMIT ? OFFSET ?', [limit, offset], (err, results) => {
+      if (err) {
+        console.error('Erro na consulta paginada:', err);
+        return res.status(500).json({ error: 'Erro ao buscar projetos' });
+      }
+
+      res.json({
+        projetos: results,
+        pagination: {
+          total,
+          totalPages,
+          page,
+          limit
+        }
+      });
+    });
   });
 });
 

@@ -12,7 +12,7 @@ function App() {
          href="https://wa.me/5521987501858?text=Olá!%20Gostaria%20de%20mais%20informações."
          target="_blank"
         rel="noopener noreferrer"
-        class="group fixed  bottom-9 sm:bottom-6 right-4 sm;right-[2em] flex items-center gap-2  px-4 py-4 bg-green-500 rounded-full hover:bg-green-600 transition duration-[.5s] ease-in-out"
+        className="group fixed  bottom-9 sm:bottom-6 right-4 sm;right-[2em] flex items-center gap-2  px-4 py-4 bg-green-500 rounded-full hover:bg-green-600 transition duration-[.5s] ease-in-out"
 >
   <img className='w-[40px] h-[40px]  transition duration-[.5s] ease-in-out group-hover:scale-125 ' src="whatsapp-70.png" alt="" />
 </a>
