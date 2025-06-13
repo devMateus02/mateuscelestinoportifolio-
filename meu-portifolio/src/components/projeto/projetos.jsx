@@ -115,8 +115,10 @@ function Projetos() {
             <img className="max-w-full h-auto my-[1rem] mx-0" src={projetoSelecionado.src} alt={projetoSelecionado.nome} />
 
            {projetoSelecionado.tecnologias && (
-  <div className="w-full flex flex-wrap justify-center gap-2 my-2">
-    <p className='font-semibold'>Tecnologias: {Array.isArray(projetoSelecionado.tecnologias)
+  <div className="w-full flex  flex-col justify-center gap-5 my-2 text-left">
+    <h4 className='font-semibold'>Tecnologias</h4>
+    <div className='w-[100%] flex flex-wrap gap-2'>
+       {Array.isArray(projetoSelecionado.tecnologias)
       ? projetoSelecionado.tecnologias.map((tec, i) => (
           <span key={i} className="bg-[rgb(165,84,241)] text-white px-3 py-1 rounded-full text-sm">
             {tec.trim()}
@@ -127,7 +129,8 @@ function Projetos() {
             {tec.trim()}
           </span>
         ))
-    }</p>
+    }
+    </div>
     
   </div>
 )}
@@ -137,7 +140,7 @@ function Projetos() {
                 href={projetoSelecionado.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="modal-btn bg-[rgb(165,84,241)] text-white py-[.5rem] px-[1rem] rounded-[10px]"
+                className="modal-btn bg-[rgb(103,41,161)] text-white py-[.5rem] px-[1rem] rounded-[10px]"
               >
                 GitHub
               </a>
@@ -145,7 +148,7 @@ function Projetos() {
                 href={projetoSelecionado.site}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="modal-btn bg-[rgb(165,84,241)] text-white py-[.5rem] px-[1rem] rounded-[10px]"
+                className="modal-btn bg-[rgb(103,41,161)] text-white py-[.5rem] px-[1rem] rounded-[10px]"
               >
                 Site
               </a>
