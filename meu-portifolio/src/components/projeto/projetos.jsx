@@ -94,7 +94,7 @@ function Projetos() {
       {/* Modal do projeto */}
       {projetoSelecionado && (
         <div
-          className="fixed top-10 left-0 w-full h-full bg-[rgba(0,0,0,0.6)] flex items-center justify-center z-[999] p-4 overflow-auto"
+          className="fixed top-0 left-0 w-full h-[100vh] bg-[rgba(0,0,0,0.6)] flex items-center justify-center z-[999] p-4 overflow-auto"
           onClick={fecharModal}
         >
           <div
@@ -135,7 +135,7 @@ function Projetos() {
   </div>
 )}
 
-            <div className="modal-buttons flex w-full justify-around mt-[1rem] gap-4">
+            <div className="modal-buttons flex w-full justify-end mt-[1rem] gap-1">
               <a
                 href={projetoSelecionado.github}
                 target="_blank"
