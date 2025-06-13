@@ -53,10 +53,10 @@ function Projetos() {
 
         {!loading && !error && projetos.length > 0 && projetos.map(proj => (
           <div
-            key={proj.id}
+            key={proj._id}
             className="flex flex-col md:flex-row mt-4 mb-[6em] justify-around items-center flex-wrap gap-6"
           >
-            <img src={proj.src} alt={proj.alt} className="w-full md:w-[50%] h-auto object-contain" />
+            <img src={proj.src} alt={proj.nome} className="w-full md:w-[50%] h-auto object-contain" />
             <div className="flex flex-col items-start w-full md:w-[30%] gap-4">
               <h3 className='text-[1.4em]'>{proj.nome}</h3>
               <p className='text-left text-[.9em]'>{proj.descricao}</p>
@@ -112,21 +112,29 @@ function Projetos() {
               {projetoSelecionado.nome}
             </h3>
 
-            <img className="max-w-full h-auto my-[1rem] mx-0" src={projetoSelecionado.src} alt={projetoSelecionado.alt} />
+            <img className="max-w-full h-auto my-[1rem] mx-0" src={projetoSelecionado.src} alt={projetoSelecionado.nome} />
 
-            {projetoSelecionado.tecnologias && (
-              <div className="w-full flex flex-wrap justify-center gap-2 my-2">
-                {projetoSelecionado.tecnologias.map((tec, i) => (
-                  <span key={i} className="bg-[rgb(165,84,241)] text-white px-3 py-1 rounded-full text-sm">
-                    {tec}
-                  </span>
-                ))}
-              </div>
-            )}
+           {projetoSelecionado.tecnologias && (
+  <div className="w-full flex flex-wrap justify-center gap-2 my-2">
+    <p className='font-semibold'>Tecnologias: {Array.isArray(projetoSelecionado.tecnologias)
+      ? projetoSelecionado.tecnologias.map((tec, i) => (
+          <span key={i} className="bg-[rgb(165,84,241)] text-white px-3 py-1 rounded-full text-sm">
+            {tec.trim()}
+          </span>
+        ))
+      : projetoSelecionado.tecnologias.split(',').map((tec, i) => (
+          <span key={i} className="bg-[rgb(172,161,138)] text-white px-3 py-1 rounded-full text-sm">
+            {tec.trim()}
+          </span>
+        ))
+    }</p>
+    
+  </div>
+)}
 
             <div className="modal-buttons flex w-full justify-around mt-[1rem] gap-4">
               <a
-                href={projetoSelecionado.link}
+                href={projetoSelecionado.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="modal-btn bg-[rgb(165,84,241)] text-white py-[.5rem] px-[1rem] rounded-[10px]"

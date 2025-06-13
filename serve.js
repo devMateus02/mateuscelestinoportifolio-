@@ -1,53 +1,62 @@
-require('dotenv').config(); 
+require('dotenv').config();
 const express = require('express');
+const mongoose = require('mongoose');
 const cors = require('cors');
-
 const nodemailer = require('nodemailer');
-const db = require('./db');
-const app = express();
 
-app.use(cors()); 
+const app = express();
+app.use(cors());
 app.use(express.json());
 
-app.get('/projetos', (req, res) => {
-  const page = parseInt(req.query.page) || 1;      // Página atual, padrão 1
-  const limit = parseInt(req.query.limit) || 5;    // Itens por página, padrão 5
-  const offset = (page - 1) * limit;               // Cálculo do offset
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('MongoDB conectado'))
+  .catch(err => console.error('Erro na conexão:', err));
 
-  // Primeiro busca a contagem total de projetos
-  db.query('SELECT COUNT(*) AS total FROM projetos', (countErr, countResult) => {
-    if (countErr) {
-      console.error('Erro ao contar projetos:', countErr);
-      return res.status(500).json({ error: 'Erro ao contar projetos' });
-    }
+const ProjetoSchema = new mongoose.Schema({
+  nome: String,
+  descricao: String,
+  src: String,
+  site: String,
+  github: String,
+  tecnologias: [String],
+}, { timestamps: true });
 
-    const total = countResult[0].total;
+const Projeto = mongoose.model('Projetos', ProjetoSchema);
+
+// ROTA: Buscar projetos com paginação
+app.get('/projetos', async (req, res) => {
+  try {
+    const page = Math.max(1, parseInt(req.query.page)) || 1;
+    const limit = Math.max(1, parseInt(req.query.limit)) || 3;
+    const skip = (page - 1) * limit;
+
+    const [total, projetos] = await Promise.all([
+      Projeto.countDocuments(),
+      Projeto.find().limit(limit).skip(skip)
+    ]);
+
     const totalPages = Math.ceil(total / limit);
 
-    // Depois busca os projetos paginados
-    db.query('SELECT * FROM projetos LIMIT ? OFFSET ?', [limit, offset], (err, results) => {
-      if (err) {
-        console.error('Erro na consulta paginada:', err);
-        return res.status(500).json({ error: 'Erro ao buscar projetos' });
+    res.json({
+      projetos,
+      pagination: {
+        total,
+        totalPages,
+        page,
+        limit
       }
-
-      res.json({
-        projetos: results,
-        pagination: {
-          total,
-          totalPages,
-          page,
-          limit
-        }
-      });
     });
-  });
+  } catch (err) {
+    console.error('Erro ao buscar projetos:', err);
+    res.status(500).json({ error: 'Erro ao buscar projetos' });
+  }
 });
 
 
+
+// ROTA: Enviar email
 app.post('/send-email', async (req, res) => {
   const { name, email, message } = req.body;
-
 
   const transporter = nodemailer.createTransport({
     service: 'gmail',
