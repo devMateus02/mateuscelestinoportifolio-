@@ -22,7 +22,7 @@ function App() {
         <Navbar />
 
         <div className="  relative">
-          {/* <a
+          <a
             href="https://wa.me/5521987501858?text=Olá!%20Gostaria%20de%20mais%20informações."
             target="_blank"
             rel="noopener noreferrer"
@@ -33,7 +33,7 @@ function App() {
               src="whatsapp-70.png"
               alt=""
             />
-          </a> */}
+          </a>
 
           <header
             id="home"
@@ -48,7 +48,7 @@ function App() {
             <div class="triangle"></div>
             <div class="triangle"></div>
             <div class="triangle"></div>
-            <div class="triangle"></div>
+          
 
             <div className="container-hero z-10 flex flex-col items-center">
               <h1 data-aos='fade-up' className=" titulo text-[2em] sm:text-[2.5em] md:text-[3.5em] font-medium text-white  w-full sm:w-[90%] md:w-[70%] text-center">

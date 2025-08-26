@@ -14,23 +14,23 @@ function NavBar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 z-50 transition-all duration-600 ease-in-out px-8 py-4 flex items-center justify-between
+      className={`fixed max-w-[100vw] top-0 left-0 z-50 transition-all duration-600 ease-in-out px-8 py-4 flex items-center md:justify-between
     ${scrolled ? "bg md:mt-2 md:rounded-2xl backdrop-blur-md shadow-md transition-all" : "bg-transparent shadow-md"}
     ${scrolled ? "w-full md:w-1/2 md:left-[25%] justify-center" : "w-full"}
   `}
     >
-      <div className={`group flex items-center gap-4 cursor-pointer
+      {/* <div className={`group flex items-center gap-4 cursor-pointer
            ${scrolled ? "hidden transition-all" : "text-white"}
         `}>
         <a
-          className={`text-lg font-bold transition-colors duration-300 ${
+          className={`hidden md:block text-lg font-bold transition-colors duration-300 ${
             scrolled ? "hidden transition-all" : "text-white"
           } group-hover:text-purple-500`}
           href="#home"
         >
           Mateus Celestino
         </a>
-      </div>
+      </div> */}
 
       {/* Botão Mobile */}
       <button
