@@ -110,7 +110,7 @@ const Contato = ({ getUsers }) => {
              target="_blank"
              href="https://www.instagram.com/mateus_celestino_12/"
            >
-            <img src="Instagram.png" alt="link para o github" />
+            <img src="/Instagram.png" alt="link para o github" />
               </a>
              <a 
             href="https://wa.me/5521987501858?text=Olá!%20Gostaria%20de%20mais%20informações."
@@ -120,7 +120,7 @@ const Contato = ({ getUsers }) => {
           >
             <img
               className="w-[45px] h-[45px]"
-              src="whatsapp-70.png"
+              src="/whatsapp-70.png"
               alt=""
             />
           </a>
@@ -128,7 +128,7 @@ const Contato = ({ getUsers }) => {
               target="_blank"
                     href="https://www.linkedin.com/in/mateus-celestino-a3b535367/"
                   >
-                    <img src="LinkedIn.png" alt="" />
+                    <img src="/Linkedin.png" alt="" />
                   </a>
           </div>
            </div>

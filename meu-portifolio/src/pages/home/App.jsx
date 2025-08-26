@@ -75,7 +75,7 @@ function App() {
                     target="_blank"
                     href="https://www.linkedin.com/in/mateus-celestino-a3b535367/"
                   >
-                    <img src="Linkedin.png" alt="link do linkedIn" />
+                    <img src="/Linkedin.png" alt="link do linkedIn" />
                   </a>
                
              
@@ -84,7 +84,7 @@ function App() {
                     target="_blank"
                     href="https://github.com/devMateus02"
                   >
-                    <img src="GitHub.png" alt="link para o github" />
+                    <img src="/GitHub.png" alt="link para o github" />
                   </a>
                
               
@@ -93,7 +93,7 @@ function App() {
                     target="_blank"
                     href="https://www.instagram.com/mateus_celestino_12/"
                   >
-                    <img src="Instagram.png" alt="link para o instagram" />
+                    <img src="/Instagram.png" alt="link para o instagram" />
                   </a>
              
              
