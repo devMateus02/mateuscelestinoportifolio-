@@ -6,7 +6,7 @@ import Contato from "../../components/contato/contato";
 import SkillBar from "../../components/skillBar/SkillBar";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import linkedin from "../../assets/linkedin.png"
+import linkedin from "../../assets/Linkedin.png"
 import github from "../../assets/GitHub.png"
 function App() {
   
