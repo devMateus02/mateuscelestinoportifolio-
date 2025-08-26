@@ -6,7 +6,8 @@ import Contato from "../../components/contato/contato";
 import SkillBar from "../../components/skillBar/SkillBar";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import linkedin from "../../assets/linkedin.png"
+import github from "../../assets/GitHub.png"
 function App() {
   
   useEffect(() => {
@@ -75,7 +76,7 @@ function App() {
                     target="_blank"
                     href="https://www.linkedin.com/in/mateus-celestino-a3b535367/"
                   >
-                    <img src="/Linkedin.png" alt="link do linkedIn" />
+                    <img src={linkedin} alt="link do linkedIn" />
                   </a>
                
              
@@ -84,7 +85,7 @@ function App() {
                     target="_blank"
                     href="https://github.com/devMateus02"
                   >
-                    <img src="/GitHub.png" alt="link para o github" />
+                    <img src={github} alt="link para o github" />
                   </a>
                
               
