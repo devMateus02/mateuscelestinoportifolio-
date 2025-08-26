@@ -21,7 +21,7 @@ function App() {
       <div className="relative flex flex-col text-center justify-center">
         <Navbar />
 
-        <div className="h-[100dvh]  relative">
+        <div className="  relative">
           {/* <a
             href="https://wa.me/5521987501858?text=Olá!%20Gostaria%20de%20mais%20informações."
             target="_blank"
