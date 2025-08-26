@@ -58,12 +58,13 @@ const Contato = ({ getUsers }) => {
   return (
     <section
       id="contato"
-      className="container-contato flex flex-col justify-center items-center min-h-[90vh] px-4"
+      className="container-contato mb-8 flex flex-col  pt-5 justify-center items-center px-4"
     >
-      <h2 className="text-2xl mb-1.5 font-normal">contato</h2>
+      <h2 className="text-2xl font-normal">contato</h2>
 
-      <div className="cot w-full h-[40vh] flex justify-center items-center mt-4">
-        <form className="form-cont flex flex-col justify-center items-center gap-6 w-full max-w-3xl ">
+     <div className='flex flex-col md:flex-row w-[100%] gap-10 mt-5 justify-center'>
+       <div data-aos='fade-right' className="cot w-[100%] flex justify-center items-center mt-4">
+        <form className="form-cont w-[100%] flex flex-col justify-center items-center gap-6  max-w-3xl ">
           <input
             ref={inputName}
             type="text"
@@ -96,6 +97,43 @@ const Contato = ({ getUsers }) => {
           </button>
         </form>
       </div>
+
+      <div data-aos='fade-left' className='w-[100%] mb-16'>
+           <div className='sm:w-[350px] h-[250px] flex flex-col  items-start justify-center bg pl-2.5 rounded-2xl'>
+            <p className='text-white font-normal'>
+            <span className='font-semibold  '>Email:</span> devmateusfullstack@gmail.com
+           </p>
+           <p className='text-white font-normal'><span className='font-semibold '>Contato:</span> 55+ (21)987501858</p>
+          <div className='flex flex-row justify-center'> 
+            <a
+             className="transition-all duration-[.5s] ease-in-out scale-[0.8] hover:scale-[1]"
+             target="_blank"
+             href="https://www.instagram.com/mateus_celestino_12/"
+           >
+            <img src="Instagram.png" alt="link para o github" />
+              </a>
+             <a 
+            href="https://wa.me/5521987501858?text=Olá!%20Gostaria%20de%20mais%20informações."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-all duration-[.5s] ease-in-out scale-[0.7] hover:scale-[0.9]"
+          >
+            <img
+              className="w-[45px] h-[45px]"
+              src="whatsapp-70.png"
+              alt=""
+            />
+          </a>
+           <a className="transition-all duration-[.5s] ease-in-out scale-[0.8] hover:scale-[1]"
+              target="_blank"
+                    href="https://www.linkedin.com/in/mateus-celestino-a3b535367/"
+                  >
+                    <img src="LinkedIn.png" alt="" />
+                  </a>
+          </div>
+           </div>
+      </div>
+     </div>
     </section>
   );
 };
