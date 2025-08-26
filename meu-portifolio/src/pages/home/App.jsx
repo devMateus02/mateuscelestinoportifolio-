@@ -75,7 +75,7 @@ function App() {
                     target="_blank"
                     href="https://www.linkedin.com/in/mateus-celestino-a3b535367/"
                   >
-                    <img src="LinkedIn.png" alt="link do linkedIn" />
+                    <img src="Linkedin.png" alt="link do linkedIn" />
                   </a>
                
              
