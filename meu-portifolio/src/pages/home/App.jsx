@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import Navbar from "../../components/nav-bar/nav-bar";
 import Projetos from "../../components/projeto/projetos";
 import "./App.css";
@@ -9,16 +9,34 @@ import "aos/dist/aos.css";
 import linkedin from "../../assets/Linkedin.png"
 import github from "../../assets/GitHub.png"
 function App() {
-  
+
+ const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    AOS.init({
-      duration: 1000, // duração da animação em ms
-      once: false,     // se true, anima só 1 vez
-    });
+    AOS.init({ duration: 1000, once: false });
+
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
   }, []);
+
+  if (loading) {
+    return (
+      <div className="div-loader">
+      
+      <span className="loader-text">loading</span>
+      <div className="loader">
+      <span className="load"></span>
+      </div>
+      </div>
+
+    );
+  }
   return (
     <>
-      <div className="relative flex flex-col text-center justify-center">
+        {!loading && <div className="relative flex flex-col text-center justify-center">
         <Navbar />
 
         <div className="  relative">
@@ -60,7 +78,7 @@ function App() {
               </p>
 
               <a data-aos='fade' data-aos-delay='350'
-                className="btn-hero mb-[5%] bg-[rgb(118,18,211)] text-white font-medium text-[1.2em] sm:text-[1.5em] py-[.5rem] px-[2rem] rounded-[10px] transition-all duration-[.5s] ease-in-out mt-[2em]"
+                className="shadow__btn-hero"
                 href="#portifolio"
               >
                 Portifólio
@@ -72,7 +90,7 @@ function App() {
             <div className="absolute  flex-col left-0 top-[35%] bg-transparent hidden  md:flex :">
               
                   <a data-aos='fade-right' data-aos-delay="100"
-                    className="link-social"
+                    className="link-social transition-all duration-[.5s] ease-in-out scale-[0.9] hover:scale-[1]"
                     target="_blank"
                     href="https://www.linkedin.com/in/mateus-celestino-a3b535367/"
                   >
@@ -81,7 +99,7 @@ function App() {
                
              
                   <a data-aos='fade-right'  data-aos-delay="250"
-                    className="link-socia"
+                    className="link-social transition-all duration-[.5s] ease-in-out scale-[0.9] hover:scale-[1]"
                     target="_blank"
                     href="https://github.com/devMateus02"
                   >
@@ -90,7 +108,7 @@ function App() {
                
               
                   <a data-aos='fade-right'  data-aos-delay="300"
-                    className="link-social"
+                    className="link-social transition-all duration-[.5s] ease-in-out scale-[0.9] hover:scale-[1]"
                     target="_blank"
                     href="https://www.instagram.com/mateus_celestino_12/"
                   >
@@ -260,7 +278,7 @@ function App() {
             </p>
           </footer>
         </div>
-      </div>
+      </div>}
     </>
   );
 }

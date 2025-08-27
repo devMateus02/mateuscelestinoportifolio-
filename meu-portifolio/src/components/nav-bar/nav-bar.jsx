@@ -19,7 +19,7 @@ function NavBar() {
     ${scrolled ? "w-full md:w-1/2 md:left-[25%] justify-center" : "w-full"}
   `}
     >
-      {/* <div className={`group flex items-center gap-4 cursor-pointer
+      <div className={`group flex items-center gap-4 cursor-pointer
            ${scrolled ? "hidden transition-all" : "text-white"}
         `}>
         <a
@@ -30,7 +30,7 @@ function NavBar() {
         >
           Mateus Celestino
         </a>
-      </div> */}
+      </div>
 
       {/* Botão Mobile */}
       <button
